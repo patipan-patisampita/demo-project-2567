@@ -11,7 +11,7 @@
 <body>
     <nav class="navbar navbar-expand-lg shadow bg-body-tertiary">
         <div class="container">
-            <a class="navbar-brand" href="/">DevOps{Admin}</a>
+            <a class="navbar-brand" href="{{ route('admin.dashboard') }}">DevOps{Admin}</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -19,12 +19,22 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle" href="{{ route('admin.dashboard') }}" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Hello, {{Auth::guard('admin')->user()->name}}
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{route('admin.logout')}}">Logout</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Post
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ route('posts.create') }}">Create post</a></li>
+                            <li><a class="dropdown-item" href="#">Show posts</a></li>
                         </ul>
                     </li>
                 </ul>
